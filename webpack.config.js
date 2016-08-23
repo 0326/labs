@@ -9,27 +9,31 @@ module.exports = {
     filename: 'build.js'
   },
   resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
+    root: path.join(__dirname, 'node_modules')
   },
   module: {
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file',
-        query: {
-          name: '[name].[ext]?[hash]'
-        }
+    loaders: [{
+      test: /\.vue$/,
+      loader: 'vue'
+    }, {
+      test: /\.js$/,
+      loader: 'babel',
+      exclude: /node_modules/
+    }, {
+      test: /\.(png|jpg|gif|svg)$/,
+      loader: 'file',
+      query: {
+        name: '[name].[ext]?[hash]'
       }
-    ]
+    }]
+  },
+    // vue-loader config:
+    // lint all JavaScript inside *.vue files with ESLint
+    // make sure to adjust your .eslintrc
+  vue: {
+    loaders: {
+      js: 'babel!eslint'
+    }
   },
   devServer: {
     historyApiFallback: true,
@@ -40,7 +44,7 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
+    // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
