@@ -1,29 +1,24 @@
 {
   "name": "labs",
-  "version": "0.0.0",
-  "description": "front end labs ",
-  "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "frontend labs && demo",
   "author": "0326 <winniringy@gmail.com>",
-  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "dependencies": {
+    "vue": "^2.0.0-beta.5"
+  },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "babel-core": "^6.7.7",
-    "babel-loader": "^6.2.4",
-    "colors": "^1.1.0",
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-es2015": "^6.13.2",
+    "cross-env": "^1.0.6",
     "css-loader": "^0.23.1",
-    "csswring": "^4.2.2",
-    "doiuse": "^2.3.0",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "postcss-cssnext": "^2.5.2",
-    "postcss-loader": "^0.8.2",
-    "postcss-nested": "^1.0.0",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.8.11",
-    "webpack-dev-server": "^1.8.2",
-    "wordwrap": "1.0.0"
+    "file-loader": "^0.8.4",
+    "vue-loader": "^9.2.2",
+    "webpack": "^2.1.0-beta.20",
+    "webpack-dev-server": "^2.1.0-beta.0"
   }
 }
